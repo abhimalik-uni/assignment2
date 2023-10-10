@@ -1,0 +1,52 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "data/melb_data.csv"
+    },
+    "mark": "bar",
+    "selection": {
+      "propertyTypeSelect": {
+        "type": "single",
+        "fields": ["Type"],
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "h",
+            "u",
+            "t"
+          ],
+          "labels": [
+            "All types",
+            "House",
+            "Unit",
+            "Townhouse"
+          ],
+          "name": "Select a property type: "
+        }
+      }
+    },
+    "encoding": {
+      "x": {
+        "bin": true,
+        "field": "Distance",
+        "type": "quantitative",
+        "axis": {"title": "Distance from CBD (km)"}
+      },
+      "y": {
+        "aggregate": "mean",
+        "field": "Price",
+        "type": "quantitative",
+        "axis": {"title": "Average Property Price (AUD)"}
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "legend": {"title": "Property Type", "values": ["h", "t", "u"], "labels": ["House", "Townhouse", "Unit"]
+      }
+    },
+    "transform": [
+      {"filter": {"selection": "propertyTypeSelect"}}
+    ]
+  }}
+  

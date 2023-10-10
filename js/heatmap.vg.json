@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "js/new.topojson",
+    "format": {"type": "topojson", "feature": "vic_localities"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.LOC_NAME",
+      "from": {
+        "data": {
+          "url": "sales_difference_per_suburb.csv"
+        },
+        "key": "Suburb",
+        "fields": ["SalesDifference", "NumberofSales"]
+      }
+    }
+  ],
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.5,
+        "fill": "lightgray"
+      }
+    },
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "black",
+        "strokeWidth": 0.5,
+        "tooltip": true
+      },
+      "encoding": {
+        "color": {
+          "field": "SalesDifference",
+          "type": "quantitative",
+          "title": "Sales Difference",
+          "scale": {
+            "type": "linear",
+            "domain": [-50, 0, 320],  
+            "scheme": "redyellowgreen"
+          }
+        },
+        "tooltip": [
+          {"field": "properties.LOC_NAME", "type": "nominal", "title": "Suburb"},
+          {"field": "SalesDifference", "type": "quantitative", "title": "Sales Difference"},
+          {"field": "NumberofSales", "type": "quantitative", "title": "Number of Sales"}
+        ]
+      }
+    }
+  ],
+  "title": {
+    "text": "Melbourne's Hottest and Coldest Suburbs (Sales)",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
+  "width": 800,
+  "height": 600
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "js/new.topojson",
+    "format": {"type": "topojson", "feature": "vic_localities"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.LOC_NAME",
+      "from": {
+        "data": {
+          "url": "data/suburb_medians.csv"
+        },
+        "key": "Suburb",
+        "fields": ["Median Price"]
+      }
+    }
+  ],
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.5,
+        "fill": "lightgray"
+      }
+    },
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "black",
+        "strokeWidth": 0.5,
+        "tooltip": true
+      },
+      "encoding": {
+        "color": {
+          "field": "Median Price",
+          "type": "quantitative",
+          "title": "Median Price (AUD)",
+          "scale": {"scheme": "reds"}
+        },
+        "tooltip": [
+          {"field": "properties.LOC_NAME", "type": "nominal", "title": "Suburb"},
+          {"field": "Median Price", "type": "quantitative", "title": "Median Price"}
+        ]
+      }
+    },{
+    "data": {
+      "url": "js/MODIFIED_RIVERS.topojson",
+      "format": {"type": "topojson", "feature": "MODIFIED_RIVERS"}
+    },
+    "projection": {"type": "mercator"},
+    "mark": {
+      "type": "geoshape",
+      "fill": "skyblue",   
+      "stroke": "skyblue",
+      "strokeWidth": 3
+    }}
+  ],
+  "title": {
+    "text": "Melbourne Suburbs' Median House Prices",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
+  "width": 800,
+  "height": 600
+}
