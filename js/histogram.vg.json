@@ -3,6 +3,9 @@
     "data": {
       "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.csv"
     },
+    "transform": [
+      {"filter": {"selection": "propertyTypeSelect"}}
+    ],
     "mark": "bar",
     "selection": {
       "propertyTypeSelect": {
@@ -44,9 +47,6 @@
         "type": "nominal",
         "legend": {"title": "Property Type", "values": ["h", "t", "u"], "labels": ["House", "Townhouse", "Unit"]
       }
-    },
-    "transform": [
-      {"filter": {"selection": "propertyTypeSelect"}}
-    ]
+    }
   }}
   
