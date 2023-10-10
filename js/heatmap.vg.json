@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "js/new.topojson",
+    "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/new.topojson",
     "format": {"type": "topojson", "feature": "vic_localities"}
   },
   "transform": [
@@ -9,7 +9,7 @@
       "lookup": "properties.LOC_NAME",
       "from": {
         "data": {
-          "url": "sales_difference_per_suburb.csv"
+          "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/sales_difference_per_suburb.csv"
         },
         "key": "Suburb",
         "fields": ["SalesDifference", "NumberofSales"]

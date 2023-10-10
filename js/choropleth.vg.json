@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "js/new.topojson",
+    "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/new.topojson",
     "format": {"type": "topojson", "feature": "vic_localities"}
   },
   "transform": [
@@ -9,7 +9,7 @@
       "lookup": "properties.LOC_NAME",
       "from": {
         "data": {
-          "url": "data/suburb_medians.csv"
+          "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/suburb_medians.csv"
         },
         "key": "Suburb",
         "fields": ["Median Price"]
@@ -47,7 +47,7 @@
       }
     },{
     "data": {
-      "url": "js/MODIFIED_RIVERS.topojson",
+      "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/MODIFIED_RIVERS.topojson",
       "format": {"type": "topojson", "feature": "MODIFIED_RIVERS"}
     },
     "projection": {"type": "mercator"},
