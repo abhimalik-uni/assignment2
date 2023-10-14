@@ -9,7 +9,7 @@
       "lookup": "properties.LOC_NAME",
       "from": {
         "data": {
-          "url": "../data/updated_normalized_properties_sold_relative.csv"
+          "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/updated_normalized_properties_sold_relative.csv"
         },
         "key": "Suburb",
         "fields": ["RelativeSales", "NumberSold"]
@@ -20,7 +20,7 @@
   "layer": [
     {
       "data": {
-        "url": "../js/ocean.topojson",
+        "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/ocean.topojson",
         "format": {"type": "topojson", "feature": "rectangle"}
       },
       "mark": {"type": "geoshape", "fill": "deepskyblue"}

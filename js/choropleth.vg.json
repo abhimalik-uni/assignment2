@@ -45,7 +45,7 @@
       "lookup": "properties.LOC_NAME",
       "from": {
         "data": {
-          "url": "../data/suburb_medians.csv"
+          "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/suburb_medians.csv"
         },
         "key": "Suburb",
         "fields": ["Suburb", "MedianPrice", "Regionname"]
@@ -56,7 +56,7 @@
   "layer": [
     {
       "data": {
-        "url": "../js/ocean.topojson",
+        "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/ocean.topojson",
         "format": {"type": "topojson", "feature": "rectangle"}
       },
       "mark": {"type": "geoshape", "fill": "deepskyblue"}
