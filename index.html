@@ -161,7 +161,7 @@
     var histogram = "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/histogram.vg.json";
     var piechart = "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/typePie.vg.json";
     var bubble = "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/bubble.vg.json";
-    var parallel = "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/parallel.vg.json";
+    var parallel = "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/parallelcoordplotdropdown.vg.json";
     var sellerPie = "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/sellerPie.vg.json";
     var season = "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/seasonProperties.vg.json";
     var yearbuiltHistogram = "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/yearbuiltHistogram.vg.json";
@@ -177,6 +177,26 @@
     }).catch(console.error);
 
     vegaEmbed('#piechart', piechart, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#bubble', bubble, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#parallel', parallel, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#sellerPie', sellerPie, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#season', season, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#yearbuiltHistogram', yearbuiltHistogram, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>
