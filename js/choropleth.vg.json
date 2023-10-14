@@ -13,31 +13,6 @@
         "name": "Search for a suburb: "
       },
       "value": ""
-    },
-    {
-      "name": "regions",
-      "bind": {
-        "input": "select",
-        "options":[null,
-          "Eastern Metropolitan",
-        "Eastern Victoria",
-        "Northern Metropolitan",
-        "Northern Victoria",
-        "South-Eastern Metropolitan",
-        "Southern Metropolitan",
-        "Western Metropolitan",
-        "Western Victoria"],
-        "labels":["Show All",
-          "Eastern Metropolitan",
-        "Eastern Victoria",
-        "Northern Metropolitan",
-        "Northern Victoria",
-        "South-Eastern Metropolitan",
-        "Southern Metropolitan",
-        "Western Metropolitan",
-        "Western Victoria"],
-        "name": "Select a region: "
-      }
     }
   ],
   "transform": [
@@ -81,7 +56,10 @@
           "field": "MedianPrice",
           "type": "quantitative",
           "title": "Median Price (AUD)",
-          "scale": {"scheme": "reds"}
+          "scale": {"scheme": "reds"},
+          "legend": {
+            "orient": "top-right"  
+          }
         },
         "opacity": {
           "condition": {
@@ -181,6 +159,6 @@
     }
   ],
   "title": {"text": "Victoria Median Property Prices", "fontSize": 16, "anchor": "middle"},
-  "width": 750,
-  "height": 500
+  "width": 800,
+  "height": 680
 }

@@ -53,7 +53,8 @@
     "color": {
       "field": "Type",
       "type": "nominal",
-      "legend": {"title": "Property Type", "values": ["House", "Townhouse", "Unit"]}
+      "legend": {"title": "Property Type", "values": ["House", "Townhouse", "Unit"]},
+      "scale":{"range": ["lightblue", "yellow", "lightgreen"]}
     }
   }
 }

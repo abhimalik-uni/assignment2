@@ -1,0 +1,68 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 740,
+  "height": 400,
+  "data": {
+    "url": "../melb_data_monthNames.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "title":"TITLE GOES HERE",
+  "transform": [
+    {
+      "calculate": "if(datum.Regionname === 'Eastern Victoria' || datum.Regionname === 'Northern Victoria' || datum.Regionname === 'Western Victoria', 'Regional Victoria', datum.Regionname)",
+      "as": "Region"
+    },
+
+    {
+      "aggregate": [
+        {"op": "count", "as": "count"}
+      ],
+      "groupby": ["Region", "MonthName"]
+    },
+
+    {
+      "calculate": "if(datum.Region === 'Regional Victoria', 0, if(datum.Region === 'Northern Metropolitan', 1, if(datum.Region === 'Southern Metropolitan', 2, if(datum.Region === 'Western Metropolitan', 3, if(datum.Region === 'South-Eastern Metropolitan', 5, if(datum.Region === 'Eastern Metropolitan', 4, null))))))",
+      "as": "regionOrder"
+    }
+    
+  ],
+  "selection": {
+    "region_highlight": {
+      "type": "multi",
+      "fields": ["Region"],
+      "bind": "legend"
+    }
+  },
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "field": "MonthName",
+      "type": "nominal",
+      "axis": {
+        "title": "Month"
+      },
+      "sort": [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ]
+    },
+    "y": {
+      "field": "count",
+      "type": "quantitative",
+      "axis": {"title": "Number of Properties Sold"}
+    },
+    "order": {"field": "regionOrder"},
+    "color": {"field": "Region", "type": "nominal"},
+    "opacity": {
+      "condition": {"selection": "region_highlight", "value": 1},
+      "value": 0.3
+    },
+    "tooltip": [
+      {"field": "Region", "title": "Region"},
+      {"field": "MonthName", "title": "Month"},
+      {"field": "count", "title": "Number of Properties Sold"}
+    ]
+  }
+}

@@ -49,6 +49,9 @@
             "type": "linear",
             "domain": [-1, 0, 1],  
             "scheme": "purpleorange"
+          },
+          "legend": {
+            "orient": "top-right"  
           }
         },
         "tooltip": [
@@ -169,6 +172,6 @@
     "fontSize": 16,
     "anchor": "middle"
   },
-  "width": 750,
-  "height": 500
+  "width": 800,
+  "height": 680
 }

@@ -3,6 +3,8 @@
   "data": {
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.csv"
   },
+  "width": 300,
+  "height": 300,
   "title":"TITLE GOES HERE",
   "transform": [
     {
@@ -42,15 +44,22 @@
       "axis": {"title": "Distance from CBD (km)"}
     },
     "y": {
-      "aggregate": "mean",
+      "aggregate": "median",
       "field": "Price",
       "type": "quantitative",
-      "axis": {"title": "Average Property Price (AUD)"}
+      "axis": {"title": "Median Property Price (AUD)"}
     },
     "color": {
       "field": "Type",
       "type": "nominal",
-      "legend": {"title": "Property Type"}
+      "legend": {
+        "title": "Property Type",
+        "orient": "right"
+      },
+      "scale": {
+        "range": ["lightblue", "yellow", "lightgreen"],
+        "sort": ["House", "Townhouse", "Unit"]
+      }
     }
   }
 }

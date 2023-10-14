@@ -3,6 +3,8 @@
   "data": {
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.csv"
   },
+  "width": 300,
+  "height": 300,
 
   "params": [
     {
@@ -47,8 +49,7 @@
     }
   ],
   "title": {
-    "text": "Region Property Types",
-    "fontSize": 16
+    "text": "Region Property Types"
   }
   ,
   "mark": {
@@ -57,7 +58,15 @@
   },
   "encoding": {
     "theta": {"field": "PropertyCount", "type": "quantitative"},
-    "color": {"field": "TypeCategory", "type": "nominal", "title":"Property Type"},
+    "color": {
+      "field": "TypeCategory",
+      "type": "nominal",
+      "title": "Property Type",
+      "scale": {
+        "range": ["lightblue", "yellow", "lightgreen"],
+        "sort": ["House", "Townhouse", "Unit"]
+      }
+    },
     "tooltip": [
       {"field": "PropertyCount", "type": "quantitative", "title":"Count"},
       {"field": "TypeCategory", "type": "ordinal", "title":"Property Type"}

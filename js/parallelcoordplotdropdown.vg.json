@@ -3,13 +3,14 @@
   "data": {
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.json"
   },
-
+  "title": "TITLE GOES HERE",
   "params": [
     {
       "name": "regions",
       "bind": {
         "input": "select",
-        "options":[null,
+        "options":[        "South-Eastern Metropolitan",
+        "Southern Metropolitan",
           "Eastern Metropolitan",
         "Eastern Victoria",
         "Northern Metropolitan",
@@ -18,20 +19,20 @@
         "Southern Metropolitan",
         "Western Metropolitan",
         "Western Victoria"],
-        "labels":["Show All",
+        "labels":[        "South-Eastern Metropolitan",
+        "Southern Metropolitan",
           "Eastern Metropolitan",
         "Eastern Victoria",
         "Northern Metropolitan",
         "Northern Victoria",
-        "South-Eastern Metropolitan",
-        "Southern Metropolitan",
         "Western Metropolitan",
         "Western Victoria"],
         "name": "Select a region: "
-      }
+      },
+      "value": "South-Eastern Metropolitan"
     }
   ],
-  "width": 1000,
+  "width": 800,
   "height": 300,
   "transform": [
     {
@@ -94,7 +95,7 @@
     {
       "mark": "line",
       "encoding": {
-        "color": {"type": "nominal", "field": "Type", "scale": {"range": ["lightblue", "lightpink", "lightgreen"]}, "sort": ["House", "Townhouse", "Unit"]},
+        "color": {"type": "nominal", "field": "Type", "scale": {"range": ["lightblue", "yellow", "lightgreen"]}, "sort": ["House", "Townhouse", "Unit"]},
         "detail": {"type": "nominal", "field": "index"},
         "opacity": {"value":1},
         "x": {"type": "nominal", "field": "key"},

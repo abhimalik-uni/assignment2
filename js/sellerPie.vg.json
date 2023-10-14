@@ -19,6 +19,9 @@
           "type": "nominal",
           "scale": {
             "range": ["orange", "blue", "green", "purple", "grey", "pink"]
+          },
+          "legend": {
+            "orient": "left"  
           }
         },
         "tooltip": [
@@ -40,6 +43,6 @@
       }
     }
   ],
-  "width": 400,
-  "height": 400
+  "width": 350,
+  "height": 300
 }
