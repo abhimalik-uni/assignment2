@@ -1,0 +1,174 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/new.topojson",
+    "format": {"type": "topojson", "feature": "vic_localities"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.LOC_NAME",
+      "from": {
+        "data": {
+          "url": "../data/updated_normalized_properties_sold_relative.csv"
+        },
+        "key": "Suburb",
+        "fields": ["RelativeSales", "NumberSold"]
+      }
+    }
+  ],
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "../js/ocean.topojson",
+        "format": {"type": "topojson", "feature": "rectangle"}
+      },
+      "mark": {"type": "geoshape", "fill": "deepskyblue"}
+    },
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.5,
+        "fill": "lightgray"
+      }
+    },
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "black",
+        "strokeWidth": 0.5,
+        "tooltip": true
+      },
+      "encoding": {
+        "color": {
+          "field": "RelativeSales",
+          "type": "quantitative",
+          "title": "Sales Score",
+          "scale": {
+            "type": "linear",
+            "domain": [-1, 0, 1],  
+            "scheme": "purpleorange"
+          }
+        },
+        "tooltip": [
+          {"field": "properties.LOC_NAME", "type": "nominal", "title": "Suburb"},
+          {"field": "RelativeSales", "type": "quantitative", "title": "Sales Score", "format": ".3f"},  
+          {"field": "NumberSold", "type": "quantitative", "title": "Number of Sales"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/MODIFIED_RIVERS.topojson",
+        "format": {"type": "topojson", "feature": "MODIFIED_RIVERS"}
+      },
+      "projection": {"type": "mercator"},
+      "mark": {
+        "type": "geoshape",
+        "fill": "skyblue",
+        "stroke": "skyblue",
+        "strokeWidth": 3
+      }
+    },
+      {
+        "mark": {
+          "type": "text",
+          "text": "Port Phillip Bay",
+          "fontSize": 12,
+          "color": "black",
+          "align": "left",
+          "baseline": "bottom",
+          "x": 280,
+          "y": 420,
+          "font": "Arial",
+          "fontWeight": "normal"
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "text": "Yarra River",
+          "fontSize": 12,
+          "color": "black",
+          "align": "left",
+          "baseline": "bottom",
+          "x": 533,
+          "y": 230,
+          "font": "Arial",
+          "fontWeight": "normal"
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "text": "City Centre",
+          "fontSize": 12,
+          "color": "black",
+          "align": "left",
+          "baseline": "bottom",
+          "x": 302,
+          "y": 325,
+          "font": "Arial",
+          "fontWeight": "normal"
+        }
+      },
+      {
+        "mark": {
+          "type": "point",
+          "clip":true,
+          "stroke": "red",
+          "size": 24000,
+          "x": 357,
+          "y": 268
+        }},
+      {
+        "mark": {
+          "type": "text",
+          "text": "15.5 Kilometre Radius",
+          "fontSize": 12,
+          "color": "black",
+          "align": "left",
+          "baseline": "bottom",
+          "x": 255,
+          "y": 365,
+          "font": "Arial",
+          "fontWeight": "normal"
+        }
+      },
+      {
+        "mark": {
+          "type": "rule",
+          "color": "black",
+          "strokeWidth": 1
+        },
+        "encoding": {
+          "x": {"value": 347},
+          "y": {"value": 310},
+          "x2": {"value": 357},
+          "y2": {"value": 268}
+        }
+      },
+  
+      {
+        "mark": {
+          "type": "rule",
+          "color": "black",
+          "strokeWidth": 1
+        },
+        "encoding": {
+          "x": {"value":560},
+          "y": {"value":217},
+          "x2": {"value": 530},
+          "y2": {"value": 200}
+        }
+      }
+  ],
+  "title": {
+    "text": "Victoria's Hottest and Coldest Suburbs (Sales)",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
+  "width": 750,
+  "height": 500
+}

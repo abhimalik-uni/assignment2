@@ -1,0 +1,79 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "../preprocessed_melb_data_month.csv",
+    "format": {"type": "csv"}
+  },
+  "title": "Properties Sold per Season",
+  "transform": [
+    {
+      "calculate": "if(datum.Month == 12 || datum.Month == 1 || datum.Month == 2, 'Summer', if(datum.Month >= 3 && datum.Month <= 5, 'Autumn', if(datum.Month >= 6 && datum.Month <= 8, 'Winter', if(datum.Month >= 9 && datum.Month <= 11, 'Spring', 'Unknown'))))",
+      "as": "Season"
+    },
+    {
+      "aggregate": [{"op": "count", "as": "PropCount"}, {"op": "median", "field": "Price", "as": "MedianPrice"}],
+      "groupby": ["Season"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "tooltip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "Season",
+          "type": "ordinal",
+          "title": "Season",
+          "scale": {"domain": ["Summer", "Autumn", "Winter", "Spring"]},
+          "axis": {"labelAngle": 0}
+        },
+        "y": {
+          "field": "PropCount",
+          "type": "quantitative",
+          "title": "Number of Properties Sold",
+          "axis": null,
+          "format": ",.0f"  
+        },
+        "color": {
+          "field": "MedianPrice",
+          "type": "quantitative",
+          "title": "Median Property Price (AUD)",
+          "scale": {"scheme": "reds"},
+          "format": ",.0f"  
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": 15,
+        "color": "white"
+      },
+      "encoding": {
+        "x": {
+          "field": "Season",
+          "type": "ordinal",
+          "title": "Season",
+          "scale": {"domain": ["Summer", "Autumn", "Winter", "Spring"]},
+          "axis": {"labelAngle": 0}
+        },
+        "y": {
+          "field": "PropCount",
+          "type": "quantitative",
+          "title": "Number of Properties Sold",
+          "scale": {"domain": [0, 6000]},
+          "axis": null,
+          "format": ",.0f"  
+        },
+        "text": {"field": "PropCount", "type": "quantitative", "format": ",.0f"} 
+      }
+    }
+  ],
+  "width": 400,
+  "height": 300
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.csv",
+    "format": {"type": "csv"}
+  },
+  "title":"TITLE GOES HERE",
+  "width": 800,
+  "height":400,
+  "transform": [
+    {
+        "calculate": "datum.Type === 'br' ? 'Bedroom(s)' : (datum.Type === 'h' ? 'House' : (datum.Type === 'u' ? 'Unit' : (datum.Type === 't' ? 'Townhouse' : (datum.Type === 'dev site' ? 'Development Site' : 'Other Residential'))))",
+        "as": "Type"
+      },
+    {"filter": "datum.YearBuilt > 1200"},
+    {"filter": {"selection": "propertyType"}},
+    {"filter": {"selection": "landsize"}},
+    {"filter": {"selection": "numBathrooms"}},
+    {"filter": {"selection": "numRooms"}},
+    {
+      "calculate": "if(datum.Bedroom2 >= 5, '5+', toString(datum.Bedroom2))",
+      "as": "Bedroom2"
+    },
+    {
+      "calculate": "if(datum.Bathroom >= 5, '5+', toString(datum.Bathroom))",
+      "as": "Bathroom"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "stroke":"black",
+    "strokeWidth":0.4,
+    "opacity": 0.7
+  },
+  "encoding": {
+    "x": {"field": "YearBuilt", "title":"Year Built", "type": "quantitative", "scale": {"domain": [1825, 2025]}},
+    "y": {"field": "Distance", "title": "Distance from City Centre (Kilometres)", "type": "quantitative", "scale": {"domain": [0, 50]}},
+    "size": {
+      "field": "Price",
+      "type": "quantitative",
+      "legend": {
+        "title": "Price (AUD)",
+        "values": [400000, 800000, 1200000, 2000000, 4000000, 8000000]
+      },
+      "scale": {
+        "type": "ordinal",
+        "domain": [0, 9000000],
+        "range": [0, 700]  
+      }
+    },
+    "fill": {"field": "Type", "type": "nominal", "scale": {"range": ["lightblue", "lightpink", "lightgreen"]}, "sort": ["House", "Townhouse", "Unit"]},
+    "tooltip": [
+      {"field": "YearBuilt", "title":"Year Built", "type": "quantitative"},
+      {"field": "Price", "title": "Price (AUD)", "type": "quantitative"},
+      {"field": "Distance", "title": "Distance from City Centre (Kilometres)", "type": "quantitative"},
+      {"field": "Type", "title": "", "type": "nominal"},
+      {"field": "Bedroom2", "title": "Bedrooms", "type": "ordinal"},
+      {"field": "Bathroom", "title": "Bathrooms", "type": "ordinal"},
+      {"field": "Landsize", "title": "Land Size (Square Metre)", "type": "quantitative"}
+    ]
+  },
+  "config": {
+    "axis": {
+      "labelExpr": "datum.value + ''" 
+    }
+  },
+  "selection": {
+    "landsize": {
+      "type": "single",
+      "fields": ["Landsize"],
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 5000,
+        "name": "Land Size (m2) "
+      }
+    },
+    "numBathrooms": {
+      "type": "single",
+      "fields": ["Bathroom"],
+      "bind": {
+        "input": "select",
+        "options": ["0", "1", "2", "3", "4", "5+"],
+        "name": "Minimum Bathrooms "
+      }
+    },
+    "numRooms": {
+      "type": "single",
+      "fields": ["Bedroom2"],
+      "bind": {
+        "input": "select",
+        "options": ["0", "1", "2", "3", "4", "5+"],
+        "name": "Minimum Bedrooms "
+      }
+    },
+    "propertyType": {
+      "type": "single",
+      "fields": ["Type"],
+      "bind": {
+        "input": "select",
+        "options": [null, "House", "Townhouse", "Unit"],
+        "labels": ["All Types", "House", "Townhouse", "Unit"],
+        "name": "Property Type "
+      }
+    }
+  }
+}

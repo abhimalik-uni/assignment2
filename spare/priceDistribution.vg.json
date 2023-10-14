@@ -1,0 +1,13 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.csv",
+    "format": {"type": "csv"}
+  },
+  "width": 500,
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "Price", "type": "quantitative", "bin": {"maxbins": 800, "extent": [0, 9000000], "step": 200000}, "title": "Price (AUD)"},
+    "y": {"aggregate": "count", "type": "quantitative", "title": "Number of Properties"}
+  }
+}

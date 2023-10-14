@@ -3,7 +3,12 @@
   "data": {
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.csv"
   },
+  "title":"TITLE GOES HERE",
   "transform": [
+    {
+      "calculate": "datum.Type === 'br' ? 'Bedroom(s)' : (datum.Type === 'h' ? 'House' : (datum.Type === 'u' ? 'Unit' : (datum.Type === 't' ? 'Townhouse' : (datum.Type === 'dev site' ? 'Development Site' : 'Other Residential'))))",
+      "as": "Type"
+    },
     {"filter": {"selection": "propertyTypeSelect"}}
   ],
   "mark": "bar",
@@ -15,9 +20,9 @@
         "input": "select",
         "options": [
           null,
-          "h",
-          "u",
-          "t"
+          "House",
+          "Unit",
+          "Townhouse"
         ],
         "labels": [
           "All types",
@@ -45,8 +50,7 @@
     "color": {
       "field": "Type",
       "type": "nominal",
-      "legend": {"title": "Property Type", "values": ["h", "t", "u"], "labels": ["House", "Townhouse", "Unit"]}
-    },
-    "title": {"text": "Distance vs Average Property Price"}
+      "legend": {"title": "Property Type"}
+    }
   }
 }

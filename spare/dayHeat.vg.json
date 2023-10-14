@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Number of properties sold for each day of the week",
+  "data": {
+    "url": "../data/preprocessed_melb_data_with_day.csv"
+  },
+  "transform": [
+    {"aggregate": [{"op": "count", "as": "properties_sold"}],
+     "groupby": ["DayOfWeek"]}
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "DayOfWeek",
+      "type": "ordinal",
+      "title": "Day of the Week"
+    },
+    "y": {
+      "field": "properties_sold",
+      "type": "quantitative",
+      "title": "Number of Properties Sold"
+    }
+  }
+}

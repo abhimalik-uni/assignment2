@@ -4,20 +4,63 @@
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/new.topojson",
     "format": {"type": "topojson", "feature": "vic_localities"}
   },
+  "params": [
+    {
+      "name": "suburbSearch",
+      "bind": {
+        "input": "search",
+        "placeholder": "Suburb Name",
+        "name": "Search for a suburb: "
+      },
+      "value": ""
+    },
+    {
+      "name": "regions",
+      "bind": {
+        "input": "select",
+        "options":[null,
+          "Eastern Metropolitan",
+        "Eastern Victoria",
+        "Northern Metropolitan",
+        "Northern Victoria",
+        "South-Eastern Metropolitan",
+        "Southern Metropolitan",
+        "Western Metropolitan",
+        "Western Victoria"],
+        "labels":["Show All",
+          "Eastern Metropolitan",
+        "Eastern Victoria",
+        "Northern Metropolitan",
+        "Northern Victoria",
+        "South-Eastern Metropolitan",
+        "Southern Metropolitan",
+        "Western Metropolitan",
+        "Western Victoria"],
+        "name": "Select a region: "
+      }
+    }
+  ],
   "transform": [
     {
       "lookup": "properties.LOC_NAME",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/suburb_medians.csv"
+          "url": "../data/suburb_medians.csv"
         },
         "key": "Suburb",
-        "fields": ["Median Price"]
+        "fields": ["Suburb", "MedianPrice", "Regionname"]
       }
     }
   ],
   "projection": {"type": "mercator"},
   "layer": [
+    {
+      "data": {
+        "url": "../js/ocean.topojson",
+        "format": {"type": "topojson", "feature": "rectangle"}
+      },
+      "mark": {"type": "geoshape", "fill": "deepskyblue"}
+    },
     {
       "mark": {
         "type": "geoshape",
@@ -35,34 +78,109 @@
       },
       "encoding": {
         "color": {
-          "field": "Median Price",
+          "field": "MedianPrice",
           "type": "quantitative",
           "title": "Median Price (AUD)",
           "scale": {"scheme": "reds"}
         },
+        "opacity": {
+          "condition": {
+            "test": "test(regexp(suburbSearch, 'i'), datum.Suburb)",
+            "value": 1
+          },
+          "value": 0.1
+        },
         "tooltip": [
           {"field": "properties.LOC_NAME", "type": "nominal", "title": "Suburb"},
-          {"field": "Median Price", "type": "quantitative", "title": "Median Price"}
+          {"field": "Regionname", "type": "nominal", "title": "Region"},
+          {"field": "MedianPrice", "type": "quantitative", "title": "Median Price (AUD)"}
         ]
       }
-    },{
-    "data": {
-      "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/MODIFIED_RIVERS.topojson",
-      "format": {"type": "topojson", "feature": "MODIFIED_RIVERS"}
     },
-    "projection": {"type": "mercator"},
-    "mark": {
-      "type": "geoshape",
-      "fill": "skyblue",   
-      "stroke": "skyblue",
-      "strokeWidth": 3
-    }}
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/MODIFIED_RIVERS.topojson",
+        "format": {"type": "topojson", "feature": "MODIFIED_RIVERS"}
+      },
+      "projection": {"type": "mercator"},
+      "mark": {
+        "type": "geoshape",
+        "fill": "skyblue",
+        "stroke": "skyblue",
+        "strokeWidth": 3
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "text": "Port Phillip Bay",
+        "fontSize": 12,
+        "color": "black",
+        "align": "left",
+        "baseline": "bottom",
+        "x": 280,
+        "y": 420,
+        "font": "Arial",
+        "fontWeight": "normal"
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "text": "Yarra River",
+        "fontSize": 12,
+        "color": "black",
+        "align": "left",
+        "baseline": "bottom",
+        "x": 533,
+        "y": 230,
+        "font": "Arial",
+        "fontWeight": "normal"
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "text": "City Centre",
+        "fontSize": 12,
+        "color": "black",
+        "align": "left",
+        "baseline": "bottom",
+        "x": 295,
+        "y": 335,
+        "font": "Arial",
+        "fontWeight": "normal"
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "black",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {"value": 340},
+        "y": {"value": 320},
+        "x2": {"value": 357},
+        "y2": {"value": 268}
+      }
+    },
+
+    {
+      "mark": {
+        "type": "rule",
+        "color": "black",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {"value":560},
+        "y": {"value":217},
+        "x2": {"value": 530},
+        "y2": {"value": 200}
+      }
+    }
   ],
-  "title": {
-    "text": "Median Property Prices",
-    "fontSize": 16,
-    "anchor": "middle"
-  },
+  "title": {"text": "Victoria Median Property Prices", "fontSize": 16, "anchor": "middle"},
   "width": 750,
   "height": 500
 }

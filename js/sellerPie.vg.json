@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "../data/seller_data.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.SellerG === 'Barry' ? 'Barry Plant' : (datum.SellerG === 'Jellis' ? 'Jellis Craig' :(datum.SellerG === 'Nelson' ? 'Nelson Alexander' : (datum.SellerG === 'Ray' ? 'Ray White' :(datum.SellerG === 'hockingstuart' ? 'Hockingstuart' : 'Other'))))",
+      "as": "Seller"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "arc", "innerRadius": 120},
+      "encoding": {
+        "theta": {"aggregate": "count", "field": "SellerG", "type": "quantitative"},
+        "color": {
+          "field": "Seller",
+          "type": "nominal",
+          "scale": {
+            "range": ["orange", "blue", "green", "purple", "grey", "pink"]
+          }
+        },
+        "tooltip": [
+          {"field": "Seller", "type": "nominal"},
+          {"aggregate": "count", "field": "SellerG", "type": "quantitative"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 18,
+        "color": "black"
+      },
+      "encoding": {
+        "text": {"value": "TITLE GOES HERE"}
+      }
+    }
+  ],
+  "width": 400,
+  "height": 400
+}

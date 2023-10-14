@@ -1,0 +1,22 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "../preprocessed_melb_data_month.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [{"op": "count", "as": "properties_sold"}],
+      "groupby": ["Month"]
+    }
+  ],
+
+  "mark": "rect",
+  "encoding": {
+    "x": {"field": "Month", "type": "ordinal", "title": "Month"},
+    "y": {"field": "properties_sold", "type": "quantitative", "title": "Properties Sold"},
+    "tooltip": [
+      {"field": "Month", "type": "ordinal", "title": "Month"},
+      {"field": "properties_sold", "type": "quantitative", "title": "Properties Sold"}
+    ]
+  }
+}

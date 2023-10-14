@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.csv"
+  },
+
+  "params": [
+    {
+      "name": "regions",
+      "bind": {
+        "input": "select",
+        "options":[null,
+          "Eastern Metropolitan",
+        "Eastern Victoria",
+        "Northern Metropolitan",
+        "Northern Victoria",
+        "South-Eastern Metropolitan",
+        "Southern Metropolitan",
+        "Western Metropolitan",
+        "Western Victoria"],
+        "labels":["Show All",
+          "Eastern Metropolitan",
+        "Eastern Victoria",
+        "Northern Metropolitan",
+        "Northern Victoria",
+        "South-Eastern Metropolitan",
+        "Southern Metropolitan",
+        "Western Metropolitan",
+        "Western Victoria"],
+        "name": "Select a region: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "regions == null || datum.Regionname == regions"
+    },
+    {
+    "calculate": "datum.Type === 'br' ? 'Bedroom(s)' : (datum.Type === 'h' ? 'House' : (datum.Type === 'u' ? 'Unit' : (datum.Type === 't' ? 'Townhouse' : (datum.Type === 'dev site' ? 'Development Site' : 'Other Residential'))))",
+    "as": "TypeCategory"
+  },
+    {
+      "aggregate": [
+        {"op": "count", "as": "PropertyCount"}
+      ],
+      "groupby": ["Regionname", "TypeCategory"]
+    }
+  ],
+  "title": {
+    "text": "Region Property Types",
+    "fontSize": 16
+  }
+  ,
+  "mark": {
+    "type": "arc",
+    "tooltip": true
+  },
+  "encoding": {
+    "theta": {"field": "PropertyCount", "type": "quantitative"},
+    "color": {"field": "TypeCategory", "type": "nominal", "title":"Property Type"},
+    "tooltip": [
+      {"field": "PropertyCount", "type": "quantitative", "title":"Count"},
+      {"field": "TypeCategory", "type": "ordinal", "title":"Property Type"}
+    ],
+    "text": {"field": "PropertyCount", "type": "quantitative", "title": "Count"}
+  }
+}

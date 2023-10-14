@@ -1,0 +1,88 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "../data/median_prices.csv"
+  },
+  "transform": [
+    {
+      "lookup": "Suburb",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/new.topojson",
+          "format": {"type": "topojson", "feature": "vic_localities"}
+        },
+        "key": "properties.LOC_NAME"
+      }
+    }
+  ],
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/ocean.topojson",
+        "format": {"type": "topojson", "feature": "rectangle"}
+      },
+      "mark": {"type": "geoshape", "fill": "deepskyblue"}
+    },
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.5,
+        "fill": "lightgray"
+      }
+    },
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "black",
+        "strokeWidth": 0.5,
+        "tooltip": true
+      },
+      "encoding": {
+        "color": {
+          "field": "Price",
+          "type": "quantitative",
+          "title": "Median Price (AUD)",
+          "scale": {"scheme": "reds"}
+        },
+        "tooltip": [
+          {"field": "Suburb", "type": "nominal", "title": "Suburb"},
+          {"field": "Price", "type": "quantitative", "title": "Median Price"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/js/MODIFIED_RIVERS.topojson",
+        "format": {"type": "topojson", "feature": "MODIFIED_RIVERS"}
+      },
+      "projection": {"type": "mercator"},
+      "mark": {
+        "type": "geoshape",
+        "fill": "skyblue",   
+        "stroke": "skyblue",
+        "strokeWidth": 3
+      }
+    }
+  ],
+  "title": {
+    "text": "Median Property Prices",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
+  "width": 750,
+  "height": 500,
+  "selection": {
+    "filterType": {
+      "type": "single",
+      "fields": ["Type", "Bedroom2", "Bathroom", "Landsize"],
+      "bind": {
+        "Type": {"input": "select", "options": ["h", "t", "u"]},
+        "Bedroom2": {"input": "range", "min": 1, "max": 10, "step": 1},
+        "Bathroom": {"input": "range", "min": 1, "max": 10, "step": 1},
+        "Landsize": {"input": "range", "min": 0, "max": 5000, "step": 100}
+      }
+    }
+  }
+}

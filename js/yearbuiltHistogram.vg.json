@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.csv"
+  },
+  "title": "TITLE GOES HERE",
+  "width": 800,
+  "transform": [
+    {"filter": "datum.YearBuilt > 1200"},
+    {"filter": {"selection": "propertyTypeSelect"}}
+  ],
+  "mark": "bar",
+  "selection": {
+    "propertyTypeSelect": {
+      "type": "single",
+      "fields": ["Type"],
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "h",
+          "u",
+          "t"
+        ],
+        "labels": [
+          "All types",
+          "House",
+          "Unit",
+          "Townhouse"
+        ],
+        "name": "Select a property type: "
+      }
+    }
+  },
+  "encoding": {
+    "x": {
+      "bin": {"maxbins": 100, "step": 10},  
+      "field": "YearBuilt",
+      "type": "quantitative",
+      "axis": {"title": "Year Built", "format": "d"}
+    },
+    "y": {
+      "aggregate": "count",
+      "field": "",
+      "type": "quantitative",
+      "axis": {"title": "Number of properties"}
+    },
+    "color": {
+      "field": "Type",
+      "type": "nominal",
+      "legend": {"title": "Property Type", "values": ["h", "t", "u"], "labels": ["House", "Townhouse", "Unit"]}
+    }
+  }
+}

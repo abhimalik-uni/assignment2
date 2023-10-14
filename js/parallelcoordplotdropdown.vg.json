@@ -1,0 +1,172 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "../data/melb_data.json"
+  },
+
+  "params": [
+    {
+      "name": "regions",
+      "bind": {
+        "input": "select",
+        "options":[null,
+          "Eastern Metropolitan",
+        "Eastern Victoria",
+        "Northern Metropolitan",
+        "Northern Victoria",
+        "South-Eastern Metropolitan",
+        "Southern Metropolitan",
+        "Western Metropolitan",
+        "Western Victoria"],
+        "labels":["Show All",
+          "Eastern Metropolitan",
+        "Eastern Victoria",
+        "Northern Metropolitan",
+        "Northern Victoria",
+        "South-Eastern Metropolitan",
+        "Southern Metropolitan",
+        "Western Metropolitan",
+        "Western Victoria"],
+        "name": "Select a region: "
+      }
+    }
+  ],
+  "width": 1000,
+  "height": 300,
+  "transform": [
+    {
+      "calculate": "datum['Distance']",
+      "as": "Distance from CBD"
+    },
+    {
+      "calculate": "datum['Price']",
+      "as": "Price (AUD)"
+    },
+    {
+      "calculate": "datum['Landsize']",
+      "as": "Land Size (Square Metres)"
+    },
+    {
+      "calculate": "datum['Rooms']",
+      "as": "Number of Rooms"
+    },
+    {
+      "calculate": "datum['BuildingArea']",
+      "as": "Building Area (Square Metres)"
+    },
+    {
+      "calculate": "datum.Type === 'br' ? 'Bedroom(s)' : (datum.Type === 'h' ? 'House' : (datum.Type === 'u' ? 'Unit' : (datum.Type === 't' ? 'Townhouse' : (datum.Type === 'dev site' ? 'Development Site' : 'Other Residential'))))",
+      "as": "Type"
+    },
+    {
+      "filter": "regions == null || datum.Regionname == regions"},
+    {"filter": "datum['Landsize'] <= 3000"},
+    {"filter": "datum['Landsize'] > 0"},
+    {"filter": "datum['BuildingArea'] <= 1100"},
+    {"filter": "datum['BuildingArea'] > 0"},
+    {"filter": "datum['Type']"},
+    {"window": [{"op": "count", "as": "index"}]},
+    {"fold": ["Distance from CBD", "Price (AUD)", "Land Size (Square Metres)", "Number of Rooms", "Building Area (Square Metres)"]},
+    {
+      "joinaggregate": [
+        {"op": "min", "field": "value", "as": "min"},
+        {"op": "max", "field": "value", "as": "max"}
+      ],
+      "groupby": ["key"]
+    },
+    {
+      "calculate": "(datum.value - datum.min) / (datum.max - datum.min)",
+      "as": "norm_val"
+    },
+    {
+      "calculate": "(datum.min + datum.max) / 2",
+      "as": "mid"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "rule", "color": "#ccc"},
+      "encoding": {
+        "detail": {"aggregate": "count"},
+        "x": {"field": "key"}
+      }
+    },
+    {
+      "mark": "line",
+      "encoding": {
+        "color": {"type": "nominal", "field": "Type", "scale": {"range": ["lightblue", "lightpink", "lightgreen"]}, "sort": ["House", "Townhouse", "Unit"]},
+        "detail": {"type": "nominal", "field": "index"},
+        "opacity": {"value":1},
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"type": "quantitative", "field": "norm_val", "axis": null},
+        "tooltip": [
+          {"type": "quantitative", "field": "Distance from CBD"},
+          {"type": "quantitative", "field": "Price (AUD)"},
+          {"type": "quantitative", "field": "Land Size (Square Metres)"},
+          {"type": "quantitative", "field": "Number of Rooms"},
+          {"type": "quantitative", "field": "Building Area (Square Metres)"},
+          {"type": "nominal", "field": "Suburb"}
+        ]
+      }
+    },
+    {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 0}
+      },
+      "layer": [
+        {
+          "mark": {"type": "text", "style": "label"},
+          "encoding": {
+            "text": {"aggregate": "max", "field": "max"}
+          }
+        },
+        {
+          "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 150}
+      },
+      "layer": [
+        {
+          "mark": {"type": "text", "style": "label"},
+          "encoding": {
+            "text": {"aggregate": "min", "field": "mid"}
+          }
+        },
+        {
+          "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 300}
+      },
+      "layer": [
+        {
+          "mark": {"type": "text", "style": "label"},
+          "encoding": {
+            "text": {"aggregate": "min", "field": "min"}
+          }
+        },
+        {
+          "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+        }
+      ]
+    }
+  ],
+  "config": {
+    "axisX": {"domain": false, "labelAngle": 0, "tickColor": "#ccc", "title": null},
+    "view": {"stroke": null},
+    "style": {
+      "label": {"baseline": "middle", "align": "right", "dx": -5},
+      "tick": {"orient": "horizontal"}
+    }
+  }
+}

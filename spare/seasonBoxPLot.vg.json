@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "../preprocessed_melb_data_month.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "calculate": "if(datum.Month == 12 || datum.Month == 1 || datum.Month == 2, 'Summer', if(datum.Month >= 3 && datum.Month <= 5, 'Autumn', if(datum.Month >= 6 && datum.Month <= 8, 'Winter', if(datum.Month >= 9 && datum.Month <= 11, 'Spring', 'Unknown'))))",
+      "as": "Season"
+    },
+    {
+      "filter": {"field": "Price", "valid": true}  
+    }
+  ],
+  "mark": {
+    "type": "boxplot",
+    "size": 75
+  },
+  "encoding": {
+    "x": {
+      "field": "Season",
+      "type": "ordinal",
+      "title": "Season",
+      "scale": {"domain": ["Summer", "Autumn", "Winter", "Spring"]}
+    },
+    "y": {
+      "field": "Price",
+      "type": "quantitative",
+      "title": "Property Price"
+    }
+  },
+  "width": 400,
+  "height": 500
+}
