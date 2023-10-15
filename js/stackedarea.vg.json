@@ -3,7 +3,7 @@
   "width": 750,
   "height": 400,
   "data": {
-    "url": "../melb_data_monthNames.csv",
+    "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/melb_data_monthNames.csv",
     "format": {
       "type": "csv"
     }
