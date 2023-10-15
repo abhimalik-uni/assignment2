@@ -4,7 +4,7 @@
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/preprocessed_melb_data_month.csv",
     "format": {"type": "csv"}
   },
-  "title": "Properties Sold per Season",
+  "title": "TITLE GOES HERE",
   "transform": [
     {
       "calculate": "if(datum.Month == 12 || datum.Month == 1 || datum.Month == 2, 'Summer', if(datum.Month >= 3 && datum.Month <= 5, 'Autumn', if(datum.Month >= 6 && datum.Month <= 8, 'Winter', if(datum.Month >= 9 && datum.Month <= 11, 'Spring', 'Unknown'))))",
@@ -41,6 +41,11 @@
           "type": "quantitative",
           "title": "Median Price (AUD)",
           "scale": {"scheme": "reds"},
+          "legend":
+          {      
+            "orient": "none",
+            "legendX": 20,
+            "legendY":10},
           "format": ",.0f"  
         }
       }
@@ -74,6 +79,6 @@
       }
     }
   ],
-  "width": 300,
-  "height": 300
+  "width": 350,
+  "height": 350
 }

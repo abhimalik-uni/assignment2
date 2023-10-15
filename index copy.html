@@ -39,7 +39,7 @@
       <div class="pure-u-1-2">
         <div class="description description-right">
           <p> The average number of properties sold per suburb across 2016 and 2017 was 43 properties. The sales
-            score represents a standardised score ranging from -1 to 1 which is scaled based on the number of properties
+            score represents a standardised score ranging from -1 to 1 which is scaled based on a ratio of the number of properties sold and the total number of properties
             in that suburb. The average sales score is represented by 0 whilst suburbs that performed below this average are negative and positive for above
             the average. Almost all suburbs with a positive sales score were within a 15.5 kilometre radius from the city centre. The hottest suburbs with sales scores
             of 1 were the neighbouring suburbs of Essendon West and Niddrie in Melbourne's North West.
@@ -103,29 +103,40 @@
     
     <div class="pure-g">
       <div class="pure-u-1-2">
-        <div class="vis-container" id="sellerPie"></div>
+        <div class="description description-left">
+          <p>The median purchase price across all properties was 903,000 AUD. Kooyong boasted the highest suburb median
+            price of 2,185,000 AUD. There is a strong correlation between the median prices of the suburbs and its
+            location relative to the Yarra river, Central Business District and the coast. Most of the suburbs with the
+            highest median prices were located below the Yarra river, closer to the CBD and also along the shoreline. </p>
+            <p>The majority of the properties were sold in the winter season (June, July and August) and the least were sold in the summer season
+              (December, January and February). However, the number of sales were inversely proportional to the median price of the properties sold
+            in that season. The summer season had a median property price of almost 100,000 AUD higher than winter's median price.  </p>
+        </div>
       </div>
       <div class="pure-u-1-2">
         <div class="vis-container" id="season"></div>
       </div>
     </div>
 
-    <div class="description">
-      <p>The median purchase price across all properties was 903,000 AUD. Kooyong boasted the highest suburb median
-        price of 2,185,000 AUD. There is a strong correlation between the median prices of the suburbs and its
-        location relative to the Yarra river, Central Business District and the coast. Most of the suburbs with the
-        highest median prices were located below the Yarra river, closer to the CBD and also along the shoreline.
-      </p>
-    </div>
 
-    <div class="vis-container" id="bubble"></div>
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="vis-container" id="sellerPie"></div>
+      </div>
+
+      <div class="pure-u-1-2">
+        <div class="description description-right">
+          <p>The first column contains text and the second column contains a visualisation.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+        </div>
+      </div>
+    </div>
 
     <div class="vis-container" id="parallel"></div>
 
-    <div class="vis-container" id="sellerPie"></div>
-
-
-    <div class="vis-container" id="yearbuiltHistogram"></div>
+    <div class="vis-container" id="bubble"></div>
 
     <div class="vis-container" id="stackedarea"></div>
   </div>
@@ -142,7 +153,6 @@
     var parallel = "js/parallelcoordplotdropdown.vg.json";
     var sellerPie = "js/sellerPie.vg.json";
     var season = "js/seasonProperties.vg.json";
-    var yearbuiltHistogram = "js/yearbuiltHistogram.vg.json";
     var stackedarea = "js/stackedarea.vg.json";
 
 
@@ -173,10 +183,6 @@
     }).catch(console.error);
 
     vegaEmbed('#season', season, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-
-    vegaEmbed('#yearbuiltHistogram', yearbuiltHistogram, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 

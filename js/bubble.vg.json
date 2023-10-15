@@ -5,8 +5,8 @@
     "format": {"type": "csv"}
   },
   "title":"TITLE GOES HERE",
-  "width": 600,
-  "height":800,
+  "width": 750,
+  "height":670,
   "transform": [
     {
         "calculate": "datum.Type === 'br' ? 'Bedroom(s)' : (datum.Type === 'h' ? 'House' : (datum.Type === 'u' ? 'Unit' : (datum.Type === 't' ? 'Townhouse' : (datum.Type === 'dev site' ? 'Development Site' : 'Other Residential'))))",
@@ -14,9 +14,6 @@
       },
     {"filter": "datum.YearBuilt > 1200"},
     {"filter": {"selection": "propertyType"}},
-    {"filter": {"selection": "landsize"}},
-    {"filter": {"selection": "numBathrooms"}},
-    {"filter": {"selection": "numRooms"}},
     {
       "calculate": "if(datum.Bedroom2 >= 5, '5+', toString(datum.Bedroom2))",
       "as": "Bedroom2"
@@ -40,7 +37,10 @@
       "type": "quantitative",
       "legend": {
         "title": "Price (AUD)",
-        "values": [400000, 800000, 1200000, 2000000, 4000000, 8000000]
+        "values": [400000, 800000, 1200000, 2000000, 4000000, 8000000],
+        "orient": "none",
+        "legendX": 500,
+        "legendY":500
       },
       "scale": {
         "type": "ordinal",
@@ -48,7 +48,13 @@
         "range": [0, 700]  
       }
     },
-    "fill": {"field": "Type", "type": "nominal", "scale": {"range": ["lightblue", "yellow", "lightgreen"]}, "sort": ["House", "Townhouse", "Unit"]},
+    "fill": {"field": "Type", "type": "nominal", 
+    "legend":
+    {        
+      "orient": "none",
+      "legendX": 620,
+      "legendY":500},
+     "scale": {"range": ["lightblue", "yellow", "lightgreen"]}, "sort": ["House", "Townhouse", "Unit"]},
     "tooltip": [
       {"field": "YearBuilt", "title":"Year Built", "type": "quantitative"},
       {"field": "Price", "title": "Price (AUD)", "type": "quantitative"},
