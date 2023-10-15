@@ -10,7 +10,11 @@
       {"Region": "Regional Victoria", "Property Count": 131306.0}
     ]
   },
-  "title": "Number of Properties in Each Region",
+  "title": {
+    "text": "Number of Properties in Each Region",
+    "fontSize": 20,
+    "anchor": "middle"
+  },
   "mark": {"type": "arc", "innerRadius": 120},
   "encoding": {
     "theta": {"field": "Property Count", "type": "quantitative"},

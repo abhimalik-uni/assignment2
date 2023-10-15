@@ -3,7 +3,11 @@
   "data": {
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.json"
   },
-  "title": "How Property Factors Influence Each Other",
+  "title": {
+    "text": "How Property Factors Influence Each Other",
+    "fontSize": 18,
+    "anchor": "middle"
+  },
   "params": [
     {
       "name": "regions",

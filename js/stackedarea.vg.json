@@ -8,7 +8,11 @@
       "type": "csv"
     }
   },
-  "title":"Monthly Sales by Region",
+  "title": {
+    "text": "Monthly Sales by Region",
+    "fontSize": 20,
+    "anchor": "middle"
+  },
   "transform": [
     {
       "calculate": "if(datum.Regionname === 'Eastern Victoria' || datum.Regionname === 'Northern Victoria' || datum.Regionname === 'Western Victoria', 'Regional Victoria', datum.Regionname)",

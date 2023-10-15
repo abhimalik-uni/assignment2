@@ -5,7 +5,11 @@
   },
   "width": 320,
   "height": 320,
-  "title":"Median Property Prices by Distance",
+  "title": {
+    "text": "Median Property Prices by Distance",
+    "fontSize": 20,
+    "anchor": "middle"
+  },
   "transform": [
     {
       "calculate": "datum.Type === 'br' ? 'Bedroom(s)' : (datum.Type === 'h' ? 'House' : (datum.Type === 'u' ? 'Unit' : (datum.Type === 't' ? 'Townhouse' : (datum.Type === 'dev site' ? 'Development Site' : 'Other Residential'))))",

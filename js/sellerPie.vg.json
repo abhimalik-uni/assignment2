@@ -3,7 +3,11 @@
   "data": {
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/seller_data.csv"
   },
-  "title": "Seller Distribution",
+  "title": {
+    "text": "Seller Distribution",
+    "fontSize": 20,
+    "anchor": "middle"
+  },
   "transform": [
     {
       "calculate": "datum.SellerG === 'Barry' ? 'Barry Plant' : (datum.SellerG === 'Jellis' ? 'Jellis Craig' :(datum.SellerG === 'Nelson' ? 'Nelson Alexander' : (datum.SellerG === 'Ray' ? 'Ray White' :(datum.SellerG === 'hockingstuart' ? 'Hockingstuart' : 'Other'))))",
@@ -43,7 +47,7 @@
         "color": "black",
         "align": "left",
         "baseline": "bottom",
-        "x": 20,
+        "x": -20,
         "y": 435
       }
     },  {
