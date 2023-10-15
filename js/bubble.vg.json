@@ -4,7 +4,7 @@
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.csv",
     "format": {"type": "csv"}
   },
-  "title":"TITLE GOES HERE",
+  "title":"Historical Trends: Price Dynamics in Relation to Proximity to the City and Year Built",
   "width": 750,
   "height":450,
   "transform": [

@@ -3,7 +3,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/seller_data.csv"
   },
-  "title": "TITLE GOES HERE",
+  "title": "Seller Distribution",
   "transform": [
     {
       "calculate": "datum.SellerG === 'Barry' ? 'Barry Plant' : (datum.SellerG === 'Jellis' ? 'Jellis Craig' :(datum.SellerG === 'Nelson' ? 'Nelson Alexander' : (datum.SellerG === 'Ray' ? 'Ray White' :(datum.SellerG === 'hockingstuart' ? 'Hockingstuart' : 'Other'))))",
@@ -36,6 +36,7 @@
       }
     }
   ],
+  "config": {"view": {"stroke": null}},
   "width": 380,
   "height": 380
 }

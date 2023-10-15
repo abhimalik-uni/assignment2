@@ -8,7 +8,7 @@
       "type": "csv"
     }
   },
-  "title":"TITLE GOES HERE",
+  "title":"Monthly Sales by Region",
   "transform": [
     {
       "calculate": "if(datum.Regionname === 'Eastern Victoria' || datum.Regionname === 'Northern Victoria' || datum.Regionname === 'Western Victoria', 'Regional Victoria', datum.Regionname)",

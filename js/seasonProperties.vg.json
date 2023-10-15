@@ -4,7 +4,7 @@
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/preprocessed_melb_data_month.csv",
     "format": {"type": "csv"}
   },
-  "title": "TITLE GOES HERE",
+  "title": "Seasonal Sales Trends",
   "transform": [
     {
       "calculate": "if(datum.Month == 12 || datum.Month == 1 || datum.Month == 2, 'Summer', if(datum.Month >= 3 && datum.Month <= 5, 'Autumn', if(datum.Month >= 6 && datum.Month <= 8, 'Winter', if(datum.Month >= 9 && datum.Month <= 11, 'Spring', 'Unknown'))))",
@@ -79,6 +79,7 @@
       }
     }
   ],
+  "config": {"view": {"stroke": null}},
   "width": 380,
   "height": 380
 }

@@ -158,7 +158,7 @@
       }
     }
   ],
-  "title": {"text": "Victoria Median Property Prices", "fontSize": 16, "anchor": "middle"},
+  "title": {"text": "Victorian Suburbs' Median Property Prices", "fontSize": 16, "anchor": "middle"},
   "width": 800,
   "height": 680
 }

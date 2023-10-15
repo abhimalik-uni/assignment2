@@ -21,17 +21,23 @@
 
 <body>
   <div class="container">
-    <h1>Melbourne Real Estate Analysis</h1>
+    <h1>Victoria Real Estate Analysis</h1>
     <h3>FIT3179 Visualisation 2 - Abhi Malik</h3>
     <div class="pure-g">
       <div class="pure-u-1-2">
         <div class="description description-left">
-          <p>Real estate in Victoria, Australia, is a dynamic market characterized by a diverse range of properties, 
-            from urban apartments to sprawling suburban homes and picturesque rural estates. 
-            Victoria, home to the vibrant city of Melbourne, often showcases a blend of modern architecture and historic charm. 
-            The demand for housing is influenced by factors such as population growth, economic development, 
-            and lifestyle preferences. Additionally, the state's government plays a role through housing policies 
-            and initiatives to promote sustainable and affordable living options.</p>
+          <p>
+            Victoria, located in the southeastern region of Australia, is distinguished as the home to Melbourne,
+             acclaimed as the "World's Most Livable City." In line with its prestigious title, the real estate market
+              in Victoria, especially in Melbourne, experienced a significant rise in demand and competitive pricing 
+              throughout 2016 and 2017, fueled by the city's widespread desirability. This surge in demand led to a 
+              prolific increase in property development, presenting a fusion of modern and heritage offerings in the 
+              market.
+
+
+
+
+          </p>
         </div>
       </div>
       <div class="pure-u-1-2">
@@ -39,8 +45,7 @@
           <p> The average number of properties sold per suburb across 2016 and 2017 was 43 properties. The sales
             score represents a standardised score ranging from -1 to 1 which is scaled based on a ratio of the number of properties sold and the total number of properties
             in that suburb. The average sales score is represented by 0 whilst suburbs that performed below this average are negative and positive for above
-            the average. Almost all suburbs with a positive sales score were within a 15.5 kilometre radius from the city centre. The hottest suburbs with sales scores
-            of 1 were the neighbouring suburbs of Essendon West and Niddrie in Melbourne's North West.
+            the average.
           </p>
         </div>
       </div>
@@ -53,10 +58,13 @@
     <div class="pure-g">
       <div class="pure-u-1-2">
         <div class="description description-left">
-          <p>The first column contains text and the second column contains a visualisation.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed.</p>
+          <p>Almost all suburbs with a positive sales score were within a 15.5 kilometre radius from the city centre. The hottest suburbs with sales scores
+            of 1 were the neighbouring suburbs of Essendon West and Niddrie in Melbourne's North-West. </p>
+            
+            <p>Of the three property types, Houses were the most common
+            property type and had the highest
+          median prices followed by Townhouses and lastly, Units. On the contrary, Units maintained their median prices the further they were from the city centre
+        whilst Houses and Townhouses exhbitied a steeper decline. For all property types, the proximity to the city centre served as a strong factor in median prices. </p>
         </div>
       </div>
       <div class="pure-u-1-2">
@@ -92,10 +100,11 @@
 
       <div class="pure-u-1-2">
         <div class="description description-right">
-          <p>The first column contains text and the second column contains a visualisation.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+          <p> There were over 13,000 properties sold in 2016 and 2017 which were sold by 268 different real estate agencies and agents. The five well established 
+            agencies Barry Plant, Hockingstuart, Jellis Craig, Nelson Alexander and Ray White sold just over 42% of the properties in 2016 and 2017. The 5,706 properties sold
+           by these five real estate agencies had a collective value of over 6 billion AUD. The remaining 58% of properties were sold by 263 various real
+            estate agencies and individual agents.
+            </p>
         </div>
       </div>
     </div>
@@ -105,20 +114,15 @@
     <div class="pure-g">
       <div class="pure-u-1-2">
         <div class="description description-left">
-          <p>The first column contains text and the second column contains a visualisation.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed.</p>
+          <p>As previously discovered, the winter months had the highest number of sales whilst the market was much slower 
+            in the festive months (December - February). The Northern Metropolitan and Southern Metropolitan regions were the largest
+          contributers to Victoria's sales. The South-Eastern Metropolitan and Regional Victoria (Northern, Eastern and Western Victoria) 
+        contained the least number of properties and this was reflected in their monthly sales. Regional Victoria had by far the least number of sales
+      showing the influence and demand for city proximity by Victorians.    </p>
         </div>
       </div>
       <div class="pure-u-1-2">
-        <div class="description description-right">
-          <p> The first column contains text and the second column contains a visualisation.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed.
-          </p>
-        </div>
+        <div class="vis-container" id="regionPie"></div>
       </div>
     </div>
 
@@ -127,18 +131,20 @@
     <div class="pure-g">
       <div class="pure-u-1-2">
         <div class="description description-left">
-          <p>The first column contains text and the second column contains a visualisation.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed.</p>
+          <p>The steep linear relationship between the distance from the city centre and the properties' build year shows the 
+            fast paced expansion of Victoria's capital, Melbourne. As of 2023, Melbourne is Australia's most populous city with a population of over 5 million people.
+            There is a notable spike in Townhouses after 1990, highlighting the scarcity of land and increase in population, resulting in Townhouses. The older properties
+            had higher prices as they were located much closer to the city centre.
+             </p>
         </div>
       </div>
       <div class="pure-u-1-2">
         <div class="description description-right">
-          <p> The first column contains text and the second column contains a visualisation.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed.
+          <p> Property prices are very complex and are influenced by many factors. 
+            The strongest influencers for property price were the building and land size (square metres),
+            distance from city centre (kilometres) and number of bedrooms. There was an increase in building and land sizes 
+            the further the property was from the city centre as land was more accessible. There was also a trend of smaller building
+            and land sizes with less bedrooms in all distances from the city, depicting the practicality of properties. 
           </p>
         </div>
       </div>
@@ -160,6 +166,8 @@
     var sellerPie = "js/sellerPie.vg.json";
     var season = "js/seasonProperties.vg.json";
     var stackedarea = "js/stackedarea.vg.json";
+    var regionPie = "js/regionPie.vg.json";
+
 
 
     vegaEmbed('#choropleth', choropleth, { "actions": false }).then(function (result) {
@@ -197,6 +205,11 @@
     vegaEmbed('#stackedarea', stackedarea, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
+
+    vegaEmbed('#regionPie', regionPie, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    
     
   </script>
 </body>

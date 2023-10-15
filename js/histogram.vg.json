@@ -5,7 +5,7 @@
   },
   "width": 320,
   "height": 320,
-  "title":"TITLE GOES HERE",
+  "title":"Median Property Prices by Distance",
   "transform": [
     {
       "calculate": "datum.Type === 'br' ? 'Bedroom(s)' : (datum.Type === 'h' ? 'House' : (datum.Type === 'u' ? 'Unit' : (datum.Type === 't' ? 'Townhouse' : (datum.Type === 'dev site' ? 'Development Site' : 'Other Residential'))))",
@@ -41,7 +41,7 @@
       "bin": true,
       "field": "Distance",
       "type": "quantitative",
-      "axis": {"title": "Distance from CBD (km)"}
+      "axis": {"title": "Distance from City Centre (km)"}
     },
     "y": {
       "aggregate": "median",

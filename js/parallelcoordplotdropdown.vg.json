@@ -3,7 +3,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.json"
   },
-  "title": "TITLE GOES HERE",
+  "title": "How Property Factors Influence Each Other",
   "params": [
     {
       "name": "regions",
@@ -37,7 +37,7 @@
   "transform": [
     {
       "calculate": "datum['Distance']",
-      "as": "Distance from City Centre"
+      "as": "Distance from City (Kilometres)"
     },
     {
       "calculate": "datum['Price']",
@@ -67,7 +67,7 @@
     {"filter": "datum['BuildingArea'] > 0"},
     {"filter": "datum['Type']"},
     {"window": [{"op": "count", "as": "index"}]},
-    {"fold": ["Distance from City Centre", "Price (AUD)", "Land Size (Square Metres)", "Number of Rooms", "Building Area (Square Metres)"]},
+    {"fold": ["Distance from City (Kilometres)", "Price (AUD)", "Land Size (Square Metres)", "Number of Rooms", "Building Area (Square Metres)"]},
     {
       "joinaggregate": [
         {"op": "min", "field": "value", "as": "min"},
@@ -118,7 +118,7 @@
         "x": {"type": "nominal", "field": "key"},
         "y": {"type": "quantitative", "field": "norm_val", "axis": null},
         "tooltip": [
-          {"type": "quantitative", "field": "Distance from CBD"},
+          {"type": "quantitative", "field": "Distance from City (Kilometres)"},
           {"type": "quantitative", "field": "Price (AUD)"},
           {"type": "quantitative", "field": "Land Size (Square Metres)"},
           {"type": "quantitative", "field": "Number of Rooms"},
@@ -147,7 +147,7 @@
     {
       "encoding": {
         "x": {"type": "nominal", "field": "key"},
-        "y": {"value": 150}
+        "y": {"value": 250}
       },
       "layer": [
         {
@@ -164,7 +164,7 @@
     {
       "encoding": {
         "x": {"type": "nominal", "field": "key"},
-        "y": {"value": 300}
+        "y": {"value": 500}
       },
       "layer": [
         {
