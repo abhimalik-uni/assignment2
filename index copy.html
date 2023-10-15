@@ -53,13 +53,38 @@
 
 
     <div class="vis-container" id="heatmap"></div>
+
+    <div class="pure-g">
+
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+
+          <p>Almost all suburbs with a positive sales score were within a 15.5 kilometre radius from the city centre. The hottest suburbs with sales scores
+            of 1 were the neighbouring suburbs of Essendon West and Niddrie in Melbourne's North-West. </p>
+
+          <p> There were over 13,000 properties sold in 2016 and 2017 which were sold by 268 different real estate agencies and agents. The five well established 
+            agencies Barry Plant, Hockingstuart, Jellis Craig, Nelson Alexander and Ray White sold just over 42% of the properties in 2016 and 2017. The 5,706 properties sold
+           by these five real estate agencies had a collective value of over 6 billion AUD. The remaining 58% of properties were sold by 263 various real
+            estate agencies and individual agents.
+            </p>
+        </div>
+      </div>
+
+      <div class="pure-u-1-2">
+        <div class="vis-container" id="sellerPie"></div>
+      </div>
+    </div>
     
 
     <div class="pure-g">
       <div class="pure-u-1-2">
-        <div class="description description-left">
-          <p>Almost all suburbs with a positive sales score were within a 15.5 kilometre radius from the city centre. The hottest suburbs with sales scores
-            of 1 were the neighbouring suburbs of Essendon West and Niddrie in Melbourne's North-West. </p>
+        <div class="vis-container" id="histogram"></div>
+      </div>
+
+      
+      <div class="pure-u-1-2">
+        <div class="description description-right">
+
             
             <p>Of the three property types, Houses were the most common
             property type and had the highest
@@ -67,11 +92,35 @@
         whilst Houses and Townhouses exhbitied a steeper decline. For all property types, the proximity to the city centre served as a strong factor in median prices. </p>
         </div>
       </div>
-      <div class="pure-u-1-2">
-        <div class="vis-container" id="histogram"></div>
-      </div>
 
     </div>
+
+
+    <div class="vis-container" id="bubble"></div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+          <p>The steep linear relationship between the distance from the city centre and the properties' build year shows the 
+            fast paced expansion of Victoria's capital, Melbourne. As of 2023, Melbourne is Australia's most populous city with a population of over 5 million people.
+            There is a notable spike in Townhouses after 1990, highlighting the scarcity of land and increase in population, resulting in a surge in Townhouse building. The older properties
+            had higher prices as they were located much closer to the city centre.
+             </p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="description description-right">
+          <p> Property prices are very complex and are influenced by many factors. 
+            The strongest influencers for property price were the building and land size (square metres),
+            distance from city centre (kilometres) and number of bedrooms. There was an increase in building and land sizes 
+            the further the property was from the city centre as land was more accessible. There was also a trend of smaller building
+            and land sizes with less bedrooms in all distances from the city, depicting the practicality of properties. 
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="vis-container" id="parallel"></div>
 
     <div class="vis-container" id="choropleth"></div>
     
@@ -93,22 +142,6 @@
     </div>
 
 
-    <div class="pure-g">
-      <div class="pure-u-1-2">
-        <div class="vis-container" id="sellerPie"></div>
-      </div>
-
-      <div class="pure-u-1-2">
-        <div class="description description-right">
-          <p> There were over 13,000 properties sold in 2016 and 2017 which were sold by 268 different real estate agencies and agents. The five well established 
-            agencies Barry Plant, Hockingstuart, Jellis Craig, Nelson Alexander and Ray White sold just over 42% of the properties in 2016 and 2017. The 5,706 properties sold
-           by these five real estate agencies had a collective value of over 6 billion AUD. The remaining 58% of properties were sold by 263 various real
-            estate agencies and individual agents.
-            </p>
-        </div>
-      </div>
-    </div>
-
     <div class="vis-container" id="stackedarea"></div>
 
     <div class="pure-g">
@@ -126,31 +159,7 @@
       </div>
     </div>
 
-    <div class="vis-container" id="bubble"></div>
-
-    <div class="pure-g">
-      <div class="pure-u-1-2">
-        <div class="description description-left">
-          <p>The steep linear relationship between the distance from the city centre and the properties' build year shows the 
-            fast paced expansion of Victoria's capital, Melbourne. As of 2023, Melbourne is Australia's most populous city with a population of over 5 million people.
-            There is a notable spike in Townhouses after 1990, highlighting the scarcity of land and increase in population, resulting in Townhouses. The older properties
-            had higher prices as they were located much closer to the city centre.
-             </p>
-        </div>
-      </div>
-      <div class="pure-u-1-2">
-        <div class="description description-right">
-          <p> Property prices are very complex and are influenced by many factors. 
-            The strongest influencers for property price were the building and land size (square metres),
-            distance from city centre (kilometres) and number of bedrooms. There was an increase in building and land sizes 
-            the further the property was from the city centre as land was more accessible. There was also a trend of smaller building
-            and land sizes with less bedrooms in all distances from the city, depicting the practicality of properties. 
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="vis-container" id="parallel"></div>
+  
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
