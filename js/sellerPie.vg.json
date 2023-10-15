@@ -34,6 +34,30 @@
           {"aggregate": "count", "field": "SellerG", "type": "quantitative"}
         ]
       }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "text": "The 263 other real estate agencies and agents sold around 58% of properties",
+        "fontSize": 12,
+        "color": "black",
+        "align": "left",
+        "baseline": "bottom",
+        "x": 20,
+        "y": 435
+      }
+    },  {
+      "mark": {
+        "type": "rule",
+        "color": "black",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {"value": 157},
+        "y": {"value": 420},
+        "x2": {"value": 175},
+        "y2": {"value": 365}
+      }
     }
   ],
   "config": {"view": {"stroke": null}},

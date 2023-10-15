@@ -13,6 +13,7 @@
     },
     {"filter": {"selection": "propertyTypeSelect"}}
   ],
+  
   "mark": "bar",
   "selection": {
     "propertyTypeSelect": {
