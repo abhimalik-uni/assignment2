@@ -23,8 +23,6 @@
   <div class="container">
     <h1>Melbourne Real Estate Analysis</h1>
     <h3>FIT3179 Visualisation 2 - Abhi Malik</h3>
-
-
     <div class="pure-g">
       <div class="pure-u-1-2">
         <div class="description description-left">
@@ -49,11 +47,7 @@
     </div>
 
 
-    <div class="pure-g">
-      <div class="pure-u-1">
-        <div class="vis-container" id="heatmap"></div>
-      </div>
-    </div>  
+    <div class="vis-container" id="heatmap"></div>
     
 
     <div class="pure-g">
@@ -168,7 +162,9 @@
     var stackedarea = "js/stackedarea.vg.json";
 
 
-    vegaEmbed('#choropleth', choropleth, { "actions": false });
+    vegaEmbed('#choropleth', choropleth, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
 
     vegaEmbed('#heatmap', heatmap, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view

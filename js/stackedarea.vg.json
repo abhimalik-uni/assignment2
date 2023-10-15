@@ -41,7 +41,8 @@
       "field": "MonthName",
       "type": "nominal",
       "axis": {
-        "title": "Month"
+        "title": "Month",
+        "labelAngle": -45
       },
       "sort": [
         "January", "February", "March", "April", "May", "June",

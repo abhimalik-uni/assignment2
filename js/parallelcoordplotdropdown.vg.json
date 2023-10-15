@@ -37,7 +37,7 @@
   "transform": [
     {
       "calculate": "datum['Distance']",
-      "as": "Distance from CBD"
+      "as": "Distance from City Centre"
     },
     {
       "calculate": "datum['Price']",
@@ -67,7 +67,7 @@
     {"filter": "datum['BuildingArea'] > 0"},
     {"filter": "datum['Type']"},
     {"window": [{"op": "count", "as": "index"}]},
-    {"fold": ["Distance from CBD", "Price (AUD)", "Land Size (Square Metres)", "Number of Rooms", "Building Area (Square Metres)"]},
+    {"fold": ["Distance from City Centre", "Price (AUD)", "Land Size (Square Metres)", "Number of Rooms", "Building Area (Square Metres)"]},
     {
       "joinaggregate": [
         {"op": "min", "field": "value", "as": "min"},
@@ -84,6 +84,15 @@
       "as": "mid"
     }
   ],
+
+  "selection": {
+    "type_highlight": {
+      "type": "multi",
+      "fields": ["Type"],
+      "bind": "legend"
+    }
+  },
+
   "layer": [
     {
       "mark": {"type": "rule", "color": "#ccc"},
@@ -103,7 +112,9 @@
             "legendY":100
         }},
         "detail": {"type": "nominal", "field": "index"},
-        "opacity": {"value":1},
+        "opacity": {
+          "value": 0.3
+        },
         "x": {"type": "nominal", "field": "key"},
         "y": {"type": "quantitative", "field": "norm_val", "axis": null},
         "tooltip": [

@@ -53,6 +53,7 @@ body {
     margin: 0 auto; 
     margin-bottom: 50px;
     margin-top: 20px;
+    position: relative;
     /* Adjust margin as needed */
   }
 
@@ -73,3 +74,10 @@ body {
 .small-font {
     font-size: 14px;
 }
+
+.circle-svg {
+    position: absolute; /* Absolute positioning for the circle */
+    top: 50%; /* Adjust top position as needed */
+    left: 50%; /* Adjust left position as needed */
+    transform: translate(-50%, -50%); /* Center the circle */
+  }
