@@ -54,7 +54,12 @@
       "axis": {"title": "Number of Properties Sold"}
     },
     "order": {"field": "regionOrder"},
-    "color": {"field": "Region", "type": "nominal",     "legend":
+    "color": {"field": "Region", "type": "nominal",   
+    "scale": {
+      "domain": ["Regional Victoria", "Northern Metropolitan", "Southern Metropolitan", "Western Metropolitan", "South-Eastern Metropolitan", "Eastern Metropolitan"],
+      "range": ["#17becf", "#1f77b4", "#2ca02c", "#9467bd", "#e377c2", "#ff7f0e"]
+    },  
+    "legend":
     {        
       "orient": "none",
       "legendX": 600,

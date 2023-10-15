@@ -32,8 +32,8 @@
       "value": "South-Eastern Metropolitan"
     }
   ],
-  "width": 700,
-  "height": 300,
+  "width": 800,
+  "height": 500,
   "transform": [
     {
       "calculate": "datum['Distance']",
@@ -95,7 +95,13 @@
     {
       "mark": "line",
       "encoding": {
-        "color": {"type": "nominal", "field": "Type", "scale": {"range": ["lightblue", "yellow", "lightgreen"]}, "sort": ["House", "Townhouse", "Unit"]},
+        "color": {"type": "nominal", "field": "Type", "scale": {"range": ["lightblue", "yellow", "lightgreen"]}, "sort": ["House", "Townhouse", "Unit"],
+        "legend": {
+          "title": "Property Type",
+            "orient": "none",
+            "legendX": 750,
+            "legendY":100
+        }},
         "detail": {"type": "nominal", "field": "index"},
         "opacity": {"value":1},
         "x": {"type": "nominal", "field": "key"},

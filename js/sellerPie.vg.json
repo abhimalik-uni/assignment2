@@ -22,9 +22,11 @@
             "range": ["orange", "blue", "green", "purple", "grey", "pink"]
           },
           "legend": {
+            "title":"Seller: ",
+            "titleOrient":"left",
             "orient": "none",
-            "legendX": 140,
-            "legendY": 90
+            "legendX": 120,
+            "legendY": 140
           }
         },
         "tooltip": [
@@ -34,6 +36,6 @@
       }
     }
   ],
-  "width": 350,
-  "height": 350
+  "width": 380,
+  "height": 380
 }

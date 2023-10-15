@@ -3,8 +3,8 @@
   "data": {
     "url": "https://raw.githubusercontent.com/abhimalik-uni/assignment2/main/data/melb_data.csv"
   },
-  "width": 300,
-  "height": 300,
+  "width": 320,
+  "height": 320,
   "title":"TITLE GOES HERE",
   "transform": [
     {
@@ -54,7 +54,9 @@
       "type": "nominal",
       "legend": {
         "title": "Property Type",
-        "orient": "right"
+          "orient": "none",
+          "legendX": 220,
+          "legendY":9
       },
       "scale": {
         "range": ["lightblue", "yellow", "lightgreen"],

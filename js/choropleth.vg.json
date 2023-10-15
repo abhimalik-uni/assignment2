@@ -97,7 +97,7 @@
         "align": "left",
         "baseline": "bottom",
         "x": 280,
-        "y": 420,
+        "y": 570,
         "font": "Arial",
         "fontWeight": "normal"
       }
@@ -110,8 +110,8 @@
         "color": "black",
         "align": "left",
         "baseline": "bottom",
-        "x": 533,
-        "y": 230,
+        "x": 630,
+        "y": 300,
         "font": "Arial",
         "fontWeight": "normal"
       }
@@ -124,8 +124,8 @@
         "color": "black",
         "align": "left",
         "baseline": "bottom",
-        "x": 295,
-        "y": 335,
+        "x": 320,
+        "y": 435,
         "font": "Arial",
         "fontWeight": "normal"
       }
@@ -137,10 +137,10 @@
         "strokeWidth": 1
       },
       "encoding": {
-        "x": {"value": 340},
-        "y": {"value": 320},
-        "x2": {"value": 357},
-        "y2": {"value": 268}
+        "x": {"value": 367},
+        "y": {"value": 420},
+        "x2": {"value": 373},
+        "y2": {"value": 365}
       }
     },
 
@@ -151,10 +151,10 @@
         "strokeWidth": 1
       },
       "encoding": {
-        "x": {"value":560},
-        "y": {"value":217},
-        "x2": {"value": 530},
-        "y2": {"value": 200}
+        "x": {"value":650},
+        "y": {"value":280},
+        "x2": {"value": 620},
+        "y2": {"value": 260}
       }
     }
   ],
